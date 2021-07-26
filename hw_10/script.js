@@ -4,7 +4,6 @@ let coffeeMachine = {
   start: function() {
     // write your code here
     setTimeout(() => console.log(this.message), 3000);
-    setTimeout(() => console.log(teaPlease.message), 3000); //2
   },
 }
 coffeeMachine.start(); // 'Your coffee is ready!'
@@ -12,6 +11,8 @@ coffeeMachine.start(); // 'Your coffee is ready!'
 let teaPlease = {
  message: 'Wanna some tea instead of coffee?',
 }
+let result = coffeeMachine.start.bind(teaPlease);
+result();
 
 //TASK 2 
 function concatStr(str1, separator, str2) {
