@@ -43,8 +43,8 @@ btnStart.addEventListener('click', start); //when button start click function st
 function start(){
 	setInterval(createSquare, getRandomNumber(500, 2000)); //create square with random interval
 }
-function animate() {
-	// your code should be started here 
+//draw squares
+function drawSquare(){
 	ctx.clearRect(0, 0, canvas.width, canvas.height); //clear any previously drawn content
 	for(let i in squares){
 		ctx.beginPath(); //starts a new path, omitting the list of subpaths
@@ -54,7 +54,10 @@ function animate() {
 		ctx.closePath(); //adds a line to the path from the current to the original point under the path and closes the path itself
 		squares[i].y += squares[i].speed; //I set the speed of movement along the axis Y
 	}
-	//ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+function animate() {
+	// your code should be started here 
+	drawSquare()
 	requestAnimationFrame(animate); //make animation
 }
 
