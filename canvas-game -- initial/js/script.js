@@ -3,6 +3,8 @@ const ctx = canvas.getContext('2d');
 const btnStart = document.querySelector('.start'); //button start
 const btnStop = document.querySelector('.stop'); //button stop
 const score = document.querySelector('#score'); //score
+let squares = []; //array squares
+let timer; 
 
 //random number
 function getRandomNumber(min, max){
@@ -23,7 +25,6 @@ function getRandomColor(){
 	return color;
 }
 
-let squares = []; //array squares
 //create square
 function createSquare(){
 	//object square
@@ -38,10 +39,8 @@ function createSquare(){
 	squares.push(square); //add square to array squares
 }
 
-btnStart.addEventListener('click', start); //when button start click function start work
-
 function start(){
-	setInterval(createSquare, getRandomNumber(500, 2000)); //create square with random interval
+	timer = setInterval(createSquare, getRandomNumber(500, 2000)); //create square with random interval
 }
 //draw squares
 function drawSquare(){
@@ -55,11 +54,28 @@ function drawSquare(){
 		squares[i].y += squares[i].speed; //I set the speed of movement along the axis Y
 	}
 }
+//delete square	
+function deleteSquare(coordinate){
+	for(let i in squares){
+		if(squares[i].x <= coordinate.offsetX && squares[i].x + 40 >= coordinate.offsetX && squares[i].y <= coordinate.offsetY && squares[i].y + 40 >= coordinate.offsetY){
+			squares.splice(squares.indexOf(squares[i]), 1); //delete click square
+			score.innerHTML++; //score +1
+		}
+	}
+}
+//clear timer	
+function stop(){
+	clearInterval(timer); //clear interval
+	score.innerHTML = 0; //score = 0
+	squares.splice(0, squares.length); //clear array
+}
 function animate() {
 	// your code should be started here 
-	drawSquare()
+	drawSquare();
 	requestAnimationFrame(animate); //make animation
 }
 
-canvas.addEventListener('click', (event) => { });
+btnStart.addEventListener('click', start); //when button start click function start work
+btnStop.addEventListener('click', stop); //when button stop click function stop clear timer
+canvas.addEventListener('click', deleteSquare); //when on square click it delete and score +1
 document.body.onload = animate;
