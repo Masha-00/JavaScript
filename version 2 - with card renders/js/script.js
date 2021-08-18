@@ -20,7 +20,7 @@ function createCard(name, status, species, img, location) {
 
 	const cardStatusP = document.createElement('p');
 	const cardStatusPText = document.createTextNode(`${species} -- ${status}`);	// insert status
-	if(status === 'Dead'){
+	if(status === 'Dead'){	// check status
 		cardLiveStatus.classList.add('dead');
 	}
 	cardStatus.append(cardLiveStatus);
@@ -47,34 +47,52 @@ function createCard(name, status, species, img, location) {
 
 	container.append(card); 	
 }
-function getInfo(){
-	async function getResponse(){
-		return fetch('https://rickandmortyapi.com/api/character');
-	}
-	async function start(){
-		let response = await getResponse();
+async function getResponse(number){
+	return fetch(`https://rickandmortyapi.com/api/character/${number}`);
+}
+async function start(...arg){
+	arg.forEach(async(item) => {
+		let response = await getResponse(item); 
 		let data = await response.json();
 		console.log(data);
-		for(let i = 0; i < 10; i++){
-			createCard(data.results[i].name, data.results[i].status, data.results[i].species,  data.results[i].image, data.results[i].location.name); 
-		}
-	}
-	start();
+		createCard(data.name, data.status, data.species, data.image, data.location.name);
+	});
 }
-getInfo();
+start(1,2,4,6,10,34,3);
+
 
 // фильтрация
-let inputs = document.querySelectorAll('input');
-console.log(inputs);
-inputs.forEach(function(item){
-	item.addEventListener('click', filterCards);
-});
-function filterCards(event){
+let filter = document.querySelector('.form-container');
+//console.log(filter);
+
+filter.addEventListener('input', filterCard);
+
+function filterCard(event){
+	let formCard = document.querySelectorAll('.card');
+	//console.log(formCard);
+	formCard.forEach((item) => { // delete cards
+		item.remove();
+	});
+
+	let link = `https://rickandmortyapi.com/api/character/`;
 	if(event.target.id === 'male' || event.target.id === 'female'){
-		let link = `https://rickandmortyapi.com/api/character/?gender=${event.target.id}`;
-
+		link += `?gender=${event.target.id}`;
 	} else if (event.target.id === 'alive' || event.target.id === 'dead'){
-		let link = `https://rickandmortyapi.com/api/character/?status=${event.target.id}`;
-
+		link += `?status=${event.target.id}`;
 	}
+
+	async function getFileredCard(link){
+		return fetch(link);
+	}
+	async function drawFilteredCards(...link){
+		link.forEach(async(item) => {
+			let responce = await getFileredCard(item);
+			let data = await responce.json();
+			console.log(data.results);
+			data.results.forEach(async(elem) => {
+				createCard(elem.name, elem.status, elem.species, elem.image, elem.location.name);
+			});
+		});
+	}
+	drawFilteredCards(link);
 }
