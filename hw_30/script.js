@@ -4,7 +4,7 @@ function difference(){
     return function () {
         let newTime = Math.round(Date.now());
         startTime = Math.round((newTime - startTime) / 1000);
-        if (startTime === 0) {
+        if (!startTime) {
             console.log('Enabled');
             startTime = newTime;
         } else {
