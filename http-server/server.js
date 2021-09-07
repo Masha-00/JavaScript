@@ -24,6 +24,14 @@ const readFilePromise = util.promisify(fs.readFile);
 const writeFilePromise = util.promisify(fs.writeFile);
 const PORT = 5000;
 
+function getId(){
+    let id = 0;
+    return function(){
+        return ++id;
+    }
+}
+let hwId = getId();
+
 const server = http.createServer(async (req, res) => {
     console.log(req.url);
     const homeworkId = req.url.split('/')[2];
@@ -47,6 +55,7 @@ const server = http.createServer(async (req, res) => {
                 console.log('Finished');
                 console.log(data);
                 const parsed = queryString.parse(data);
+                parsed._id = '6121f3c' + hwId();
                 console.log(parsed);
                 homeworks.unshift(parsed); // add to start
                 fs.writeFile(pathToHomeworkJSON, JSON.stringify(homeworks), 'utf-8', (err) => {
@@ -60,7 +69,6 @@ const server = http.createServer(async (req, res) => {
         } else {
             let template = await readFilePromise(addHomeworksTemplatePath, 'utf-8');
             const output = Mustache.render(template, {
-                _id: ``,
                 number: ``,
                 title: ``,
                 description: ``,
