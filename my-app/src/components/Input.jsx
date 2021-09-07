@@ -1,6 +1,9 @@
 function Input(){
     return(
-        <input className="input-box" type="text" placeholder="Song..."/>
+        <div>
+            <h1>Playlist</h1>
+            <input className="input-box" type="text" placeholder="Song..."/>
+        </div>
     );
 }
 
