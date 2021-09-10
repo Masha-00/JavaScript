@@ -1,6 +1,6 @@
 function DeleteSong(){
     return(
-        <button className="button">Delete Song</button>
+        <button customClassName='DeleteSong'>Delete Song</button>
     );
 }
 

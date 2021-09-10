@@ -1,0 +1,24 @@
+.CreateButton {
+    padding: 5px 10px;
+    border: 3px solid black;
+    border-radius: 5px;
+    background-color: rgb(23, 167, 23);
+    margin-left: 75px;
+    width: 200px;
+}
+.OpenModal{
+    margin: 0 auto;
+    background-color: greenyellow;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.DeleteSong{
+    font-size: 40px;
+    background-color: red;
+    border: 1px solid #000;
+    border-radius: 10px;
+}
