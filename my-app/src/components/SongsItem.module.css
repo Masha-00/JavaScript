@@ -1,0 +1,43 @@
+.Songs__item{
+    margin: 10px 10px;
+    padding: 0 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 20px;
+    display: grid; 
+    grid-auto-columns: 1fr; 
+    grid-template-columns: 1.2fr 0.8fr 1fr; 
+    grid-template-rows: 1fr 1fr 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+        "name name btn-del"
+        "info info btn-del"
+        "date date btn-del"; 
+}
+.Name { 
+    grid-area: name; 
+    flex-grow: 1;
+    flex-grow: 2;
+}
+.BtnDel { 
+    grid-area: btn-del;
+    align-self: center;
+    justify-self: end;
+    padding-right: 50px;
+}
+.Info { grid-area: info; }
+.Date { grid-area: date; }
+
+.Song_info{
+    display: flex;
+}
+.Song_info p:first-child{
+    margin-right: 15px;
+}
+.LikeNoActive{
+    height: 100%;
+    opacity: 0;
+    width: 40px;
+    height: 40px;
+}

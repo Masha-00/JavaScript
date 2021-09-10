@@ -8,7 +8,6 @@ function AddSong({ addSong, generateId} ) {
         author: '',
         releaseDate: '',
         albumName: '',
-        isLiked: false,
     });
 
     const addNewSong = (event) => {
@@ -47,7 +46,7 @@ function AddSong({ addSong, generateId} ) {
                     placeholder="Name album"
                     onChange={(event) => setSong({ ...song, albumName: event.target.value})}
                     />
-            <Button type="submit" onClick={addNewSong} customClassName='CreateButton'>Create Song</Button>
+            <Button type="submit" onClick={addNewSong} customClassName='CreateButton'>Add Song</Button>
         </form>
     );
 }

@@ -31,10 +31,10 @@ function App() {
     <div className="App">
       <Button customClassName='OpenModal' onClick={() => setModal(true)}>ADD SONG</Button>
 			<SongModal visible={modal} setVisible={setModal}>
-      <AddSong addSong={addSong} generateId={generateId}/>
+      <AddSong addSong={addSong} generateId={generateId} songs={songs}/>
 			</SongModal>
       <SongList songs={songs}  deleteSong={deleteSong} />
-      <Counter/>
+      <Counter songs={songs}/>
     </div>
   );
 }

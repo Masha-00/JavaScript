@@ -12,6 +12,7 @@
    background: white;
    border-radius: 16px;
    min-width: 350px;
+   padding: 20px;
 }
   
 .songModal.active {

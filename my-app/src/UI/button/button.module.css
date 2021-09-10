@@ -3,8 +3,11 @@
     border: 3px solid black;
     border-radius: 5px;
     background-color: rgb(23, 167, 23);
-    margin-left: 75px;
+    margin-left: 55px;
     width: 200px;
+}
+.CreateButton:hover{
+    background-color: rgb(0, 253, 0);
 }
 .OpenModal{
     margin: 0 auto;
@@ -16,9 +19,26 @@
     margin-bottom: 20px;
     margin-top: 20px;
 }
+.OpenModal:hover{
+    background-color: rgb(47, 255, 92);
+}
 .DeleteSong{
     font-size: 40px;
     background-color: red;
     border: 1px solid #000;
     border-radius: 10px;
+}
+.DeleteSong:hover{
+    background-color: rgb(236, 127, 127);
+}
+.LikeSong{
+    font-size: 33px;
+    border-radius: 10px;
+    background: transparent;
+    color: red;
+    margin-right: 20px;
+}
+.LikeSong:hover{
+    background-color: red;
+    color: #fff;
 }
