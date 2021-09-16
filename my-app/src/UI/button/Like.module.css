@@ -1,0 +1,14 @@
+.LikeBtn{
+    font-size: 33px;
+    border-radius: 10px;
+    background: transparent;
+    color: red;
+    margin-right: 20px;
+}
+.LikeBtn:hover{
+    background-color: red;
+    color: #fff;
+}
+.Like{
+    opacity: 0;
+}

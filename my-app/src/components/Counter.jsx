@@ -1,6 +1,7 @@
-function Counter(){
+
+function Counter({songs}){
     return(
-        <p className="count-title">Count of songs: <span className="count">0</span></p>
+        <p className="count-title">Count of songs: <span>{songs.length}</span></p>
     );
 }
 

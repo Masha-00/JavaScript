@@ -1,49 +1,28 @@
 * {
 	box-sizing: border-box;
 }
+body{
+    background-color: #0c4783;
+}
+.songs-wrapper{
+    background-color: #ebeced;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 2%;
+    border-radius: 10px;
+}
 
-.item {
-    display: flex;
-    align-items: center;
-    height: 40px;
+span{
+    font-weight: 700;
 }
-.songs-wrapper {
-    margin-top: 5px;
-    border: 2px solid #ccc;
-	max-width: 550px;
-}
-.button {
-    border: none;
-    padding: 10px;
+.count-title{
     text-align: center;
-    border-radius: 8px;
-    margin-left: 10px;
+    color: #ebeced;
 }
-.button:hover {
-    background-color: #ccc;
-}
-.add {
-    background-color: #e0e0e0;
-}
-.like {
-    background-color: #ff9fa4;
-}
-.delete {
-    background-color: #a6e2f5;
-}
-.input-box {
-    float: left;
-    border: 1px solid #ccc;
-    padding: 10px;
-}
-.count-title span {
-    color: #646464;
-    font-weight: bold;
-}
-.like-icon {
-    height: 100%;
-    margin-left: 10px;
-}
-.songs-item{
-    margin: 15px ;
+
+.like img{
+    width: 40px;
+    margin-left: 20px;
+    margin-right: 20px;
+    opacity: 1;
 }
