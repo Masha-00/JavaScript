@@ -1,0 +1,28 @@
+* {
+	box-sizing: border-box;
+}
+body{
+    background-color: #0c4783;
+}
+.songs-wrapper{
+    background-color: #ebeced;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 2%;
+    border-radius: 10px;
+}
+
+span{
+    font-weight: 700;
+}
+.count-title{
+    text-align: center;
+    color: #ebeced;
+}
+.control{
+    max-width: 1180px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
