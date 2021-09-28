@@ -1,0 +1,26 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20%;
+}
+.input{
+    display: block;
+    border: none;
+    border-bottom: 1px solid #fff;
+    color: #fff;
+    background-color: transparent;
+    padding: 5px;
+}
+.btnLogin{
+    display: block;
+    width: 100%;
+    padding: 5px;
+    margin-top: 10px;
+    color: #000;
+    background-color: #fff;
+}
+.btnLogin:hover{
+    background-color: green;
+    transition: 0.3s ease-in-out;
+}
