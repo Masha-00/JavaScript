@@ -1,12 +1,15 @@
 import { useContext } from 'react';
-import { SongContext } from '../App';
+import { SongContext } from '../context';
 import like from '../like.svg';
 import Button from '../UI/button/button';
 import '../App.css';
 import classes from '../components/SongsItem.module.css';
+import { useHistory } from 'react-router';
 
 function SongsItem({ song }) {
     const { deleteSong, setLiked } = useContext(SongContext);
+    const history = useHistory();
+    // console.log(history);
     return(
         <div className={classes.Songs__item}>
             <div className={classes.Name}>
@@ -37,6 +40,7 @@ function SongsItem({ song }) {
             <Button customClassName='setLike' onClick={() => setLiked(song.id)}>
                 { !song.isLiked ? 'Like' : 'Dislike'}
             </Button>
+            <Button onClick={() => history.push(`/songs/${song.id}`)}>Details</Button>
             <Button customClassName='DeleteSong' onClick={() => deleteSong(song.id)}>&times;</Button>
             </div>
         </div>
