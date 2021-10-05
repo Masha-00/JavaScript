@@ -1,0 +1,15 @@
+.container{
+  width: 1400px;
+  margin: 0 auto;
+}
+.content {
+  display: grid; 
+  grid-auto-columns: 1fr; 
+  grid-template-columns: 1.4fr 0.6fr; 
+  grid-template-rows: 1fr; 
+  gap: 0px 20px; 
+  grid-template-areas: 
+    "mainVideo videos"; 
+}
+.mainVideo { grid-area: mainVideo; }
+.videos { grid-area: videos; }
