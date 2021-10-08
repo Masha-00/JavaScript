@@ -26,15 +26,7 @@ console.log(getCompanyNames());
 
 // TASK 4
 function getUserByYear(year){
-    let array = [];
-    // take the first part of the array and compare with the year
-    condidateArr.forEach(item => {
-        let fisrtPart = Number(item.registered.split('-')[0]);
-        if(fisrtPart === year){
-            array.push(item['_id']);
-        }
-    })
-    return array;
+    return condidateArr.filter(item => Number(item.registered.split('-')[0]) === year).map(item => item._id);
 }
 console.log(getUserByYear(2017));
 
@@ -56,13 +48,9 @@ console.log(searchCandidatesByPhoneNumber('+1 (927) 429-3746'));
 // TASK 7
 const getEyeColorMap = () => {
     const newObj = new Map(); // create new array
+    return condidateArr.reduce(function(previousValue, currentValue) {
+        return newObj.set(currentValue.eyeColor, condidateArr.filter(item => 
+            item.eyeColor === currentValue.eyeColor)); }, {}
+    )}
 
-    condidateArr.forEach(item => newObj.set(item.eyeColor, [])); // get colors eyes
-    for(const [key, value] of newObj.entries()){ // fill array values which match
-        condidateArr.forEach(item => {
-          item.eyeColor === key ? value.push(item) : 0;
-        })
-    }
-    return newObj;
-}
 console.log(getEyeColorMap());
